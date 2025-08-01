@@ -9,10 +9,12 @@ import { UserContext } from "../context/context";
 const RootLayout = () => {
     const { username } = useContext(UserContext)
     const navigate = useNavigate()
+    const login = localStorage.getItem("login")
     const handleLogout = () => {
         localStorage.setItem("login", false)
         navigate("/")
     }
+    console.log(login === 'true' ? "Login" : "Logout")
     return (
         <Container className="mt-3" >
             <Row>
@@ -45,9 +47,7 @@ const RootLayout = () => {
                 <Col lg={9} md={9}>
                     <Card className="p-3" style={{ minHeight: '500px' }}>
                         <div className="text-end">
-                            Welcome {username} !{' '}
-                            {/* <NavLink to="/login" >Login</NavLink> */}
-                            <Button onClick={handleLogout}>Logout</Button>
+                            {login === 'true' ? <>Welcome {username} !{' '} <Button onClick={handleLogout}>Logout</Button></> : <NavLink to="/login" >Login</NavLink>}
                         </div>
                         <hr />
                         <Outlet />

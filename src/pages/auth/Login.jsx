@@ -5,7 +5,7 @@ import { UserContext } from '../../context/context'
 
 const Login = () => {
     const { username, setUsername } = useContext(UserContext)
-    const [name, setName] = useState()
+    const [name, setName] = useState('')
     const navigate = useNavigate()
     const handleLogin = () => {
         // Need to first check user validation.....
@@ -32,7 +32,7 @@ const Login = () => {
                             <Col md={12}>
                                 <Form.Group className="mb-3" controlId="password">
                                     <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" value="password123" />
+                                    <Form.Control type="password" placeholder='Enter Password' />
                                 </Form.Group>
                             </Col>
                             <Col md={12}>
