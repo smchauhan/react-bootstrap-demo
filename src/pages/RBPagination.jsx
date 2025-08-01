@@ -8,7 +8,7 @@ const RBPagination = () => {
     const [pageNo, setPageNo] = useState(1)
     const [limitMessage, setLimitMessage] = useState('')
 
-    const [limit, setLimit] = useState(10)
+    const [limit, setLimit] = useState(20)
     //const tempData = CommentsData.slice(0, 40)
     const { totalPages, getData, getPaginationArray, getShowingInfo } = usePagination(CommentsData, page, limit)
     const data = getData();

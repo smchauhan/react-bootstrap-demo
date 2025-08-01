@@ -41,7 +41,11 @@ export const NavigationData = [
         menuName: "Interactive Comp.",
         children: [
             { id: 21, link: "/rb-accordion", menuName: "Accordion " },
-            { id: 21, link: "/rb-carousels", menuName: "Carousels " },
+            { id: 22, link: "/rb-carousels", menuName: "Carousels " },
+            { id: 23, link: "/rb-dropdowns", menuName: "Dropdowns " },
+            { id: 24, link: "/rb-modal", menuName: "Modals " },
+            { id: 25, link: "/rb-navbar-offcanvas", menuName: "Navbar" },
+            { id: 26, link: "/rb-nav-tabs", menuName: "NavTabs" },
 
         ]
     },
@@ -49,9 +53,33 @@ export const NavigationData = [
         id: 3,
         menuName: "Forms Comp",
         children: [
-            { id: 31, link: "/rb-forms", menuName: "Forms " },
+            { id: 31, link: "/forms/rb-basic-form", menuName: "RB Formik Form" },
+            { id: 32, link: "/forms/react-hook-form", menuName: "React Hook Form" },
+            { id: 33, link: "/forms/react-hook-form-yup", menuName: "React Hook Form Yup" },
+
         ]
-    }
+    },
+
+    {
+        id: 4,
+        menuName: "Blog",
+        children: [
+            { id: 41, link: "/blog", menuName: "Blog" },
+
+        ]
+    },
+
+    {
+        id: 5,
+        menuName: "Context API",
+        children: [
+            { id: 51, link: "/context-api", menuName: "Context" },
+
+        ]
+    },
+
+
+
 
 
 ]

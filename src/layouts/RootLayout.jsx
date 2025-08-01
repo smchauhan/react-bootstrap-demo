@@ -1,16 +1,24 @@
-import { Accordion, Badge, Card, Col, Container, ListGroup, Row } from "react-bootstrap"
-import { Link, NavLink, Outlet } from "react-router-dom"
+import { Accordion, Badge, Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap"
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom"
 import { NavigationData } from '../data/NavigationData';
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { ArrowRight } from "react-bootstrap-icons";
+import ScrollToTop from "../components/ScrollToTop";
+import { UserContext } from "../context/context";
 
 const RootLayout = () => {
+    const { username } = useContext(UserContext)
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        localStorage.setItem("login", false)
+        navigate("/")
+    }
     return (
-        <Container >
+        <Container className="mt-3" >
             <Row>
                 <Col lg={3} md={3}  >
                     <Card className="sidebar p-3" style={{ minHeight: '500px' }}>
-                        <Badge className="p-3 mb-2">Bootstrap Components</Badge>
+                        <Badge className="p-3 mb-2">RB, RHF, RRouter & Context API</Badge>
                         <Accordion defaultActiveKey={[1]} flush>
 
                             {NavigationData.map((menu) => {
@@ -36,10 +44,17 @@ const RootLayout = () => {
                 </Col>
                 <Col lg={9} md={9}>
                     <Card className="p-3" style={{ minHeight: '500px' }}>
+                        <div className="text-end">
+                            Welcome {username} !{' '}
+                            {/* <NavLink to="/login" >Login</NavLink> */}
+                            <Button onClick={handleLogout}>Logout</Button>
+                        </div>
+                        <hr />
                         <Outlet />
                     </Card>
                 </Col>
             </Row>
+            <ScrollToTop />
         </Container>
     )
 }
