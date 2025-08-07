@@ -74,6 +74,8 @@ export const NavigationData = [
         menuName: "Context API",
         children: [
             { id: 51, link: "/context-api", menuName: "Context" },
+            { id: 52, link: "/products", menuName: "Products" },
+            { id: 53, link: "/wishlist", menuName: "Wishlist" },
 
         ]
     },

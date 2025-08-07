@@ -35,6 +35,8 @@ import Login from "../pages/auth/Login";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import NotFound404 from "../pages/NotFound404";
 import ContextAPI from "../pages/ContextAPI";
+import Products from "../pages/products/Products";
+import Wishlist from "../pages/products/Wishlist";
 
 export const DataModeRoutes = createBrowserRouter([
     { path: "*", element: <Navigate to="/404" /> },
@@ -86,6 +88,8 @@ export const DataModeRoutes = createBrowserRouter([
             },
 
             { path: "/context-api", element: <ContextAPI /> },
+            { path: "/products", element: <Products /> },
+            { path: "/wishlist", element: <Wishlist /> },
 
 
         ]

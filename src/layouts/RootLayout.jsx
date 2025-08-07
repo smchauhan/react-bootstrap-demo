@@ -4,10 +4,11 @@ import { NavigationData } from '../data/NavigationData';
 import { Fragment, useContext } from "react";
 import { ArrowRight } from "react-bootstrap-icons";
 import ScrollToTop from "../components/ScrollToTop";
-import { UserContext } from "../context/context";
+import { UserContext, WishlistContext } from "../context/context";
 
 const RootLayout = () => {
     const { username } = useContext(UserContext)
+    const { wishlistState } = useContext(WishlistContext)
     const navigate = useNavigate()
     const login = localStorage.getItem("login")
     const handleLogout = () => {
@@ -46,7 +47,9 @@ const RootLayout = () => {
                 </Col>
                 <Col lg={9} md={9}>
                     <Card className="p-3" style={{ minHeight: '500px' }}>
+
                         <div className="text-end">
+                            <NavLink to="/wishlist" className="btn me-2">Wishlist <Badge>{wishlistState?.wishlistItems?.length}</Badge> </NavLink>
                             {login === 'true' ? <>Welcome {username} !{' '} <Button onClick={handleLogout}>Logout</Button></> : <NavLink to="/login" >Login</NavLink>}
                         </div>
                         <hr />
